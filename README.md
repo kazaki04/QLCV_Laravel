@@ -324,7 +324,7 @@ icacls bootstrap\cache /grant Users:F /T
 
 ## 🤝 Đóng góp
 
-Chúng tôi hoan nghênh mọi đóng góp! Vui lòng:
+Em hoan nghênh mọi đóng góp! Vui lòng:
 
 1. Fork dự án
 2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
@@ -345,12 +345,6 @@ Chúng tôi hoan nghênh mọi đóng góp! Vui lòng:
 ## 📄 License
 
 Dự án này được phát hành dưới giấy phép [MIT License](LICENSE).
-
-## 👨‍💻 Tác giả
-
-**Kazaki04**
-- GitHub: [@kazaki04](https://github.com/kazaki04)
-- Repository: [QLCV_Laravel](https://github.com/kazaki04/QLCV_Laravel)
 
 ## Người thực hiện
 - Lê Trường Giang - 22010224
