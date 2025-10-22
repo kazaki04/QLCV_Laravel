@@ -187,7 +187,6 @@
         </form>
         @endif
     </div>
-    <!-- Ảnh minh họa đã được loại bỏ, chỉ giữ lại khung đăng ký -->
 </div>
 @endsection
 
