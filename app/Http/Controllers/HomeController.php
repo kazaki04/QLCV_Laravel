@@ -7,8 +7,6 @@ use RegistersUsers;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
      * @return void
      */
     public function __construct()
@@ -18,18 +16,15 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
+
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        // compute dashboard stats
         $totalTasks = \App\Models\Task::count();
         $tasksByStatus = \App\Models\Task::select('status', \DB::raw('count(*) as cnt'))->groupBy('status')->pluck('cnt','status')->toArray();
         $totalEmployees = \App\Models\User::where('role','employee')->where('active', true)->count();
 
-        // average completion time in days for completed tasks (end_date - start_date)
         $completedTasks = \App\Models\Task::where('status','completed')->whereNotNull('start_date')->whereNotNull('end_date')->get();
         $avgCompletionDays = null;
         if($completedTasks->count()){

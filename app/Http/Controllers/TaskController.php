@@ -55,9 +55,6 @@ class TaskController extends Controller
         return view('tasks.show', compact('task'));
     }
 
-    /**
-     * Return HTML fragment for task detail modal (includes comments)
-     */
     public function detail(Task $task)
     {
         return view('tasks.partials.detail-modal', compact('task'));
@@ -84,7 +81,7 @@ class TaskController extends Controller
         ]);
         $oldAssigned = $task->assigned_to;
         $task->update($request->only(['title','description','status','deadline','start_date','end_date','assigned_to']));
-        // if assigned_to changed and now set, send email
+
         if($task->assigned_to && $task->assigned_to != $oldAssigned){
             $user = \App\Models\User::find($task->assigned_to);
             if($user && $user->email){
@@ -100,9 +97,6 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Xóa công việc thành công!');
     }
 
-    /**
-     * AJAX assign task to user
-     */
     public function assign(Request $request, Task $task)
     {
         $this->authorize('manage', \App\Models\User::class);

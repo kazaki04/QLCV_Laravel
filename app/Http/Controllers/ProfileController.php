@@ -9,9 +9,6 @@ use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
     public function edit()
     {
         return view('profile.edit', [
@@ -19,9 +16,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
     public function update(Request $request)
     {
         $user = Auth::user();
@@ -42,9 +36,6 @@ class ProfileController extends Controller
         return redirect()->route('profile.edit')->with('success', 'Thông tin cá nhân đã được cập nhật!');
     }
 
-    /**
-     * Update the user's password.
-     */
     public function updatePassword(Request $request)
     {
         $validated = $request->validate([
@@ -64,9 +55,6 @@ class ProfileController extends Controller
         return back()->with('success', 'Mật khẩu đã được cập nhật!');
     }
 
-    /**
-     * Delete the user's account.
-     */
     public function destroy(Request $request)
     {
         $request->validate([
