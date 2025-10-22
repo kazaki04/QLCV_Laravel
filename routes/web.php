@@ -19,9 +19,17 @@ Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProfileController;
 Route::resource('employees', EmployeeController::class)->middleware('auth');
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index')->middleware('auth');
 
+// Profile routes
+Route::middleware('auth')->group(function () {
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('/reset-session', function() {
 	\Illuminate\Support\Facades\Session::flush();
