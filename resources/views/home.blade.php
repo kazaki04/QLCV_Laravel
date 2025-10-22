@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-3">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Bảng điều khiển</h2>
-        <div>Xin chào, <strong>{{ Auth::user()->name }}</strong></div>
+        <!-- <div>Xin chào, <strong>{{ Auth::user()->name }}</strong></div> -->
     </div>
 
     <div class="row g-3">
