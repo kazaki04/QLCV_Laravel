@@ -21,7 +21,9 @@
                 </select>
             </div>
             @endcan
-            <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning me-2 animate__animated animate__fadeInUp">Sửa</a>
+            @can('manage', App\Models\User::class)
+                <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning me-2 animate__animated animate__fadeInUp">Sửa</a>
+            @endcan
             <a href="{{ route('tasks.index') }}" class="btn btn-secondary animate__animated animate__fadeInLeft">Quay lại</a>
         </div>
     </div>
